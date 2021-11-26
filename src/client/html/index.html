@@ -3,9 +3,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Varela+Round&display=swap" rel="stylesheet">
+    <title>Travel App</title>
 </head>
 <body>
-    <p>Hello World!</p>
+    <main>
+        <section class="menu">
+            <div class="headline">Where Would You Like To Go?</div>
+            <form class="form" onsubmit="return Client.handleSubmit(event)">
+                <div class="place-panel">
+                    <label for="place" class="panel-name">Destination</label> 
+                    <input type="text" name="place" id="place" placeholder="Enter your destination here">
+                    <p id="error-msg">Your Place is Invalid.</p>
+                </div>
+                <div class="start-date-panel">
+                    <label for="start-date" class="panel-name">Start Date</label>        
+                    <input type="date" name="start-date" id="start-date" placeholder="Start Date">
+                </div>
+                <div class="end-date-panel">
+                    <label for="end-date" class="panel-name">End Date</label>        
+                    <input type="date" name="end-date" id="end-date" placeholder="End Date">
+                </div>
+                <input type="submit" id="submit" value="Let's Plan!">
+            </form>
+        </section>
+        <section class="forecast">
+            <div class="forecast-main">
+                <div id="city"></div>
+                <div id="date"></div>
+                <div id="icon"></div>
+                <div id="temp"></div>
+                <div id="condition"></div>
+            </div>
+            <div class="forecast-detail">
+                <div id="feel-like"></div>
+                <div id="wind-speed"></div>
+                <div id="humidity"></div>
+                <div id="pressure"></div>
+                <div id="visibility"></div>
+                <div id="you-feel"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social">
+            <a href="#" class="github"><img src="../media/github.png" alt="github"></a>
+            <a href="#" class="linkedin"><img src="../media/linkedin.png" alt="LinkedIn"></a>
+            <a href="#" class="instagram"><img src="../media/instagram.png" alt="Instagram"></a>
+        </div>
+        <div class="copyright" id="about">&copy; Copyright Thanachon 2021</div>
+    </footer>
 </body>
 </html>
