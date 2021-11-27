@@ -2,18 +2,14 @@ export function handleSubmit(event) {
     event.preventDefault();
 
     // check what url was put into the form field
-    let inputPlace = document.getElementById('place').value;
-    let inputPlace2 = document.getElementById('place');
+    let inputPlace = document.getElementById('name').value;
     console.log(inputPlace);
-    console.log(inputPlace2);
-    console.log({inputPlace});
-    console.log({inputPlace2});
 
     // POST request to server side
-    if((inputPlace == "rome") === true) {
+    if(Client.checkForURL(inputPlace) === true) {
 
         console.log("::: Form Submitted :::");
-        fetch('http://localhost:8888/place', {
+        fetch('http://localhost:8000/data', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json' },
