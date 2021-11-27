@@ -1,7 +1,7 @@
 {
   "name": "my-travel-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project is part of Udacity Front End Web Developer Nanodegree Program.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
