@@ -3,6 +3,7 @@ export function handleSubmit(event) {
 
     // check what url was put into the form field
     let inputPlace = document.getElementById('place').value;
+    let inputUsername = document.getElementById('username').value;
     let inputPlace2 = document.getElementById('place');
     console.log(inputPlace);
     console.log(inputPlace2);
@@ -13,11 +14,12 @@ export function handleSubmit(event) {
     if((1+1==2) === true) {
 
         console.log("::: Form Submitted :::");
+        const duo = {inputPlace, inputUsername}
         fetch('http://localhost:8888/place', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({inputPlace})
+            body: JSON.stringify(duo)
         })
         .then(res => res.json())
         .then(function(res) {

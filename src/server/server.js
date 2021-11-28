@@ -42,12 +42,14 @@ app.get('/', function (req, res) {
 // POST Route
 app.post('/place', async(req, res) => {
     const text = req.body.inputPlace;
-    const response = await fetch(`http://api.geonames.org/searchJSON?q=${text}&fuzzy=0.8&maxRows=10&username=${geoName}`);
+    const user = req.body.inputUsername;
+    const response = await fetch(`http://api.geonames.org/searchJSON?q=${text}&fuzzy=0.8&maxRows=10&username=${user}`);
     // const response = await fetch(`http://api.geonames.org/searchJSON?q=rome&fuzzy=0.8&maxRows=10&username=thasup`);
+    console.log(response);
 
     try {
         const data = await response.json();
-        console.log(`data : ${data}`);
+        // console.log(`data : ${data}`);
         res.send(data);
     } catch (error) {
         console.log(`error : ${error}`);
