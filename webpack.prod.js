@@ -37,7 +37,7 @@ module.exports = {
                     'css-loader',
                     // Compiles Sass to CSS
                     'sass-loader',
-                  ]
+                ]
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
@@ -49,12 +49,21 @@ module.exports = {
                         name: '[name]_[hash].[ext]',
                         outputPath: 'media',
                         publicPath: 'media',
-                        emitFile: true,
+                        // emitFile: true,
                         // esModule: false
                     }
                 },
+                // {type: 'javascript/auto'}
             },
-            // {type: 'javascript/auto'}
+            {
+                test: /\.html$/i,
+                use: {
+                    loader: "html-loader",
+                    options: {
+                        esModule: false,
+                    }
+                },
+            }
         ]
     },
     plugins: [
