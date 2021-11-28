@@ -35,6 +35,21 @@ module.exports = {
                     // Compiles Sass to CSS
                     'sass-loader',
                   ]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                // dependency: { not: ['url'] },
+                // type: 'asset/resource',
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name]_[hash].[ext]',
+                        // outputPath: 'media',
+                        // publicPath: 'media',
+                        // emitFile: false,
+                        // esModule: false
+                    }
+                },
             }
         ]
     },

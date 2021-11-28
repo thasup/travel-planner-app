@@ -10,7 +10,7 @@ export function handleSubmit(event) {
     console.log({inputPlace2});
 
     // POST request to server side
-    if((inputPlace == "rome") === true) {
+    if((1+1==2) === true) {
 
         console.log("::: Form Submitted :::");
         fetch('http://localhost:8888/place', {
