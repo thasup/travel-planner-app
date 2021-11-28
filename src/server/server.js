@@ -39,13 +39,44 @@ app.get('/', function (req, res) {
     res.sendFile(path.resolve('dist/index.html'));
 });
 
-// POST Route
+// GET Route - GeoName API
 app.post('/place', async(req, res) => {
     const text = req.body.inputPlace;
     const user = req.body.inputUsername;
-    const response = await fetch(`http://api.geonames.org/searchJSON?q=${text}&fuzzy=0.8&maxRows=10&username=${user}`);
+    const response = await fetch(`https://api.geonames.org/searchJSON?q=${text}&fuzzy=0.8&maxRows=10&username=${user}`);
     // const response = await fetch(`http://api.geonames.org/searchJSON?q=rome&fuzzy=0.8&maxRows=10&username=thasup`);
-    console.log(response);
+    // console.log(response);
+
+    try {
+        const data = await response.json();
+        // console.log(`data : ${data}`);
+        res.send(data);
+    } catch (error) {
+        console.log(`error : ${error}`);
+    };
+});
+
+// GET Route - WeatherBit API
+app.post('/forecast', async(req, res) => {
+    const latitude = req.body.inputLat;
+    const longitude = req.body.inputLng;
+    const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${latitude}&lon=${longitude}&key=${weatherBit}`);
+    // console.log(response);
+
+    try {
+        const data = await response.json();
+        // console.log(`data : ${data}`);
+        res.send(data);
+    } catch (error) {
+        console.log(`error : ${error}`);
+    };
+});
+
+// GET Route - PixaBay API
+app.post('/pic', async(req, res) => {
+    const text = req.body.inputPlace;
+    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${text}&image_type=photo&orientation=horizontal`);
+    // console.log(response);
 
     try {
         const data = await response.json();
