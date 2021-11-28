@@ -44,10 +44,20 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name]_[hash].[ext]',
-                        // outputPath: 'media',
-                        // publicPath: 'media',
+                        outputPath: 'media',
+                        publicPath: 'media',
                         // emitFile: false,
                         // esModule: false
+                    }
+                },
+                // {type: 'javascript/auto'}
+            },
+            {
+                test: /\.html$/i,
+                use: {
+                    loader: "html-loader",
+                    options: {
+                        esModule: false,
                     }
                 },
             }
@@ -57,6 +67,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./src/client/html/index.html",
             filename: "./index.html",
+            minify: false
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files
