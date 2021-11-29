@@ -1,8 +1,10 @@
 // import SCSS
 import '../styles/footer.scss';
+import '../styles/form.scss';
 
 // import JS
 import {handleSubmit} from './handleSubmit';
+import {alertError} from './alertError';
 
 // import html
 import html from "../html/index.html";
@@ -27,4 +29,5 @@ import linkedin from '../media/linkedin.png';
 // global export
 export {
     handleSubmit,
+    alertError
 }
