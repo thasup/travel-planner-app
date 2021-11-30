@@ -15,4 +15,5 @@ export function currentDate() {
         'November', 
         'December'];
     let today = `${localDate.getDate()} ${year[localDate.getMonth()]} ${localDate.getFullYear()}`;
+    return today;
 };

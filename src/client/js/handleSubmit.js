@@ -12,11 +12,10 @@ export function handleSubmit(event) {
     let inputStartDate = document.getElementById('start-date').value;
     let inputEndDate = document.getElementById('end-date').value;
 
-    console.log(inputPlace);
+    console.log(inputPlace, inputStartDate, inputEndDate);
 
     // POST request to server side
     if(inputPlace !== '') {
-        console.log(inputPlace);
 
         // GeoName Fetching
         console.log(`::: GeoName Fetching :::`);
@@ -24,7 +23,7 @@ export function handleSubmit(event) {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ inputPlaces })
+            body: JSON.stringify({ inputPlace })
         })
         .then(res => res.json())
         .then(function(res) {
@@ -35,6 +34,7 @@ export function handleSubmit(event) {
             country = res.geonames[0].countryName;
             console.log(inputLat, inputLng, country);
             Client.updateUI(inputPlace, country, inputStartDate, inputEndDate)
+            console.log(inputPlace, country, inputStartDate, inputEndDate);
         })
         
         // WeatherBit Fetching
@@ -50,9 +50,10 @@ export function handleSubmit(event) {
             .then(function(res) {
                 console.log(`::: Fetching Success :::`);
                 console.log(res);
-                const data = res.data[0];
+                const data = res;
                 city = res.city_name;
                 console.log(city);
+                Client.updateWeather(data)
             })
 
             // PixaBay Fetching

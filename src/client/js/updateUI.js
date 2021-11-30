@@ -1,5 +1,5 @@
-export function updateUI(city, country, start, end) {
+export function updateUI(cityData, countryData, startDateData, endDateData) {
     const header = document.querySelector('.head');
 
-    header.style.innerHTML = `<p>${city}, ${country}</p><p>${start} - ${end}</p>`;
+    header.innerHTML = `<p>${cityData}, ${countryData}</p>\n<p>${startDateData} - ${endDateData}</p>`;
 };

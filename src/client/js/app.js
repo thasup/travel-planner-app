@@ -10,6 +10,7 @@ import {alertError} from './alertError';
 import {updateImage} from './updateImage';
 import {currentDate} from './currentDate';
 import {updateUI} from './updateUI';
+import {updateWeather} from './updateWeather';
 
 // import html
 import html from "../html/index.html";
@@ -37,5 +38,6 @@ export {
     alertError,
     updateImage,
     currentDate,
-    updateUI
+    updateUI,
+    updateWeather
 }
