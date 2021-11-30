@@ -10,17 +10,14 @@
 </head>
 <body>
     <main>
+        <section class="head"></section>
         <section class="menu">
-            <div class="headline">Where Would You Like To Go?</div>
+            <h3 class="headline">Where Would You Like To Go?</h3>
             <form class="form" onsubmit="return Client.handleSubmit(event)">
                 <div class="place-panel">
                     <label for="place" class="panel-name">Destination</label> 
                     <input type="text" name="place" id="place" placeholder="Enter your destination here">
                     <p id="error-msg">Please Enter Your Destination.</p>
-                </div>
-                <div class="place-panel">
-                    <label for="username" class="panel-username">Username</label> 
-                    <input type="text" name="username" id="username" placeholder="Enter your username here">
                 </div>
                 <div class="start-date-panel">
                     <label for="start-date" class="panel-name">Start Date</label>        

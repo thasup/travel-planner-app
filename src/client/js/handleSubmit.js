@@ -9,21 +9,22 @@ export function handleSubmit(event) {
     let hits;
 
     let inputPlace = document.getElementById('place').value;
-    let inputUsername = document.getElementById('username').value;
+    let inputStartDate = document.getElementById('start-date').value;
+    let inputEndDate = document.getElementById('end-date').value;
 
     console.log(inputPlace);
 
     // POST request to server side
     if(inputPlace !== '') {
-        console.log(inputPlace, inputUsername);
+        console.log(inputPlace);
 
         // GeoName Fetching
-        console.log("::: GeoName Fetching :::");
+        console.log(`::: GeoName Fetching :::`);
         fetch('http://localhost:8888/place', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ inputPlace, inputUsername })
+            body: JSON.stringify({ inputPlaces })
         })
         .then(res => res.json())
         .then(function(res) {
@@ -33,11 +34,12 @@ export function handleSubmit(event) {
             inputLng = res.geonames[0].lng;
             country = res.geonames[0].countryName;
             console.log(inputLat, inputLng, country);
+            Client.updateUI(inputPlace, country, inputStartDate, inputEndDate)
         })
         
         // WeatherBit Fetching
         .then(function() {
-            console.log("::: WeatherBit Fetching :::");
+            console.log(`::: WeatherBit Fetching :::`);
             fetch('http://localhost:8888/forecast', {
                 method: 'POST',
                 credentials: 'same-origin',           
@@ -55,7 +57,7 @@ export function handleSubmit(event) {
 
             // PixaBay Fetching
             .then(function() {
-                console.log("::: PixaBay City Image Fetching :::");
+                console.log(`::: PixaBay City Image Fetching :::`);
                 fetch('http://localhost:8888/image', {
                     method: 'POST',
                     credentials: 'same-origin',           
@@ -73,7 +75,7 @@ export function handleSubmit(event) {
 
                     // If images of input place does not exist, fetch country images instead.
                     if (hits === 0) {
-                        console.log("::: PixaBay Country Image Fetching :::");
+                        console.log(`::: PixaBay Country Image Fetching :::`);
                         fetch('http://localhost:8888/countryImage', {
                             method: 'POST',
                             credentials: 'same-origin',           

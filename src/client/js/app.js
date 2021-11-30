@@ -1,11 +1,15 @@
 // import SCSS
 import '../styles/footer.scss';
 import '../styles/form.scss';
+import '../styles/base.scss';
+import '../styles/grid.scss';
 
 // import JS
 import {handleSubmit} from './handleSubmit';
 import {alertError} from './alertError';
 import {updateImage} from './updateImage';
+import {currentDate} from './currentDate';
+import {updateUI} from './updateUI';
 
 // import html
 import html from "../html/index.html";
@@ -31,5 +35,7 @@ import linkedin from '../media/linkedin.png';
 export {
     handleSubmit,
     alertError,
-    updateImage
+    updateImage,
+    currentDate,
+    updateUI
 }

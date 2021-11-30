@@ -49,13 +49,16 @@ app.post('/place', async(req, res) => {
     const place = req.body.inputPlace;
     const user = req.body.inputUsername;
     const response = await fetch(`http://api.geonames.org/searchJSON?q=${place}&fuzzy=0.8&maxRows=1&username=${geoName}`);
-    // const response = await fetch(`http://api.geonames.org/searchJSON?q=rome&fuzzy=0.8&maxRows=10&username=thasup`);
     // console.log(response);
 
     try {
         const data = await response.json();
         // console.log(`data : ${data}`);
         res.send(data);
+        // debug
+        fetchPlace = `http://api.geonames.org/searchJSON?q=${place}&fuzzy=0.8&maxRows=1&username=${geoName}`;
+        // res.send(fetchPlace);
+        console.log(`fetchPlace : ${fetchPlace}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
@@ -72,6 +75,10 @@ app.post('/forecast', async(req, res) => {
         const data = await response.json();
         // console.log(`data : ${data}`);
         res.send(data);
+        // debug
+        fetchForecast = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${latitude}&lon=${longitude}&key=${weatherBit}`;
+        // res.send(fetchForecast);
+        console.log(`fetchForecast : ${fetchForecast}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
@@ -81,23 +88,17 @@ app.post('/forecast', async(req, res) => {
 app.post('/image', async(req, res) => {
     const City = req.body.city;
     const Country = req.body.country;
-    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}&image_type=photo&orientation=horizontal`);
+    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}+travel&image_type=photo&orientation=horizontal`);
     // console.log(response);
-
-    // (function waitMe() {
-    //     const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}&image_type=photo&orientation=horizontal`);
-
-    //     if (totalHits = 0) {
-    //         const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${Country}&image_type=photo&orientation=horizontal`);
-    //     } else {
-    //         const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}&image_type=photo&orientation=horizontal`);
-    //     };
-    // })();
 
     try {
         const data = await response.json();
         // console.log(`data : ${data}`);
         res.send(data);
+        // debug
+        fetchImage = `https://pixabay.com/api/?key=${pixaBay}&q=${City}+travel&image_type=photo&orientation=horizontal`;
+        // res.send(fetchImage);
+        console.log(`fetchImage : ${fetchImage}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
@@ -107,13 +108,17 @@ app.post('/image', async(req, res) => {
 app.post('/countryImage', async(req, res) => {
     const City = req.body.city;
     const Country = req.body.country;
-    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${Country}&image_type=photo&orientation=horizontal`);
+    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${Country}+travel&image_type=photo&orientation=horizontal`);
     // console.log(response);
 
     try {
         const data = await response.json();
         // console.log(`data : ${data}`);
         res.send(data);
+        // debug
+        fetchCountryImage = `https://pixabay.com/api/?key=${pixaBay}&q=${Country}+travel&image_type=photo&orientation=horizontal`;
+        // res.send(fetchCountryImage);
+        console.log(`fetchCountryImage : ${fetchCountryImage}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
