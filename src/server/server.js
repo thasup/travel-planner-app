@@ -1,3 +1,7 @@
+var path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
+
 /* Express to run server and routes */
 const express = require('express');
 
@@ -29,10 +33,11 @@ function listening () {
 };
 
 // Declare API Keys
-const weatherBit = process.env.weatherBit_API_key;
-const openWeather = process.env.openWeather_API_key;
-const geoName = process.env.geoName_API_key;
-const pixaBay = process.env.pixaBay_API_key;
+const weatherBit = process.env.API_KEY_WEATHERBIT;
+const openWeather = process.env.API_KEY_OPENWEATHER;
+const geoName = process.env.API_KEY_GEONAME;
+const pixaBay = process.env.API_KEY_PIXABAY;
+console.log(weatherBit, geoName, pixaBay);
 
 // GET Route
 app.get('/', function (req, res) {
@@ -41,9 +46,9 @@ app.get('/', function (req, res) {
 
 // GET Route - GeoName API
 app.post('/place', async(req, res) => {
-    const text = req.body.inputPlace;
+    const place = req.body.inputPlace;
     const user = req.body.inputUsername;
-    const response = await fetch(`http://api.geonames.org/searchJSON?q=${text}&fuzzy=0.8&maxRows=1&username=${user}`);
+    const response = await fetch(`http://api.geonames.org/searchJSON?q=${place}&fuzzy=0.8&maxRows=1&username=${geoName}`);
     // const response = await fetch(`http://api.geonames.org/searchJSON?q=rome&fuzzy=0.8&maxRows=10&username=thasup`);
     // console.log(response);
 
@@ -73,9 +78,36 @@ app.post('/forecast', async(req, res) => {
 });
 
 // GET Route - PixaBay API
-app.post('/pic', async(req, res) => {
-    const text = req.body.inputPlace;
-    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${text}&image_type=photo&orientation=horizontal`);
+app.post('/image', async(req, res) => {
+    const City = req.body.city;
+    const Country = req.body.country;
+    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}&image_type=photo&orientation=horizontal`);
+    // console.log(response);
+
+    // (function waitMe() {
+    //     const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}&image_type=photo&orientation=horizontal`);
+
+    //     if (totalHits = 0) {
+    //         const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${Country}&image_type=photo&orientation=horizontal`);
+    //     } else {
+    //         const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}&image_type=photo&orientation=horizontal`);
+    //     };
+    // })();
+
+    try {
+        const data = await response.json();
+        // console.log(`data : ${data}`);
+        res.send(data);
+    } catch (error) {
+        console.log(`error : ${error}`);
+    };
+});
+
+// GET Route - PixaBay API
+app.post('/countryImage', async(req, res) => {
+    const City = req.body.city;
+    const Country = req.body.country;
+    const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${Country}&image_type=photo&orientation=horizontal`);
     // console.log(response);
 
     try {
