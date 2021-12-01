@@ -2,7 +2,8 @@
 import '../styles/footer.scss';
 import '../styles/form.scss';
 import '../styles/base.scss';
-import '../styles/grid.scss';
+import '../styles/base.scss';
+import '../styles/overview.scss';
 
 // import JS
 import {handleSubmit} from './handleSubmit';
@@ -39,5 +40,5 @@ export {
     updateImage,
     currentDate,
     updateUI,
-    updateWeather
+    updateWeather,
 }
