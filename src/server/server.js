@@ -37,6 +37,8 @@ const weatherBit = process.env.API_KEY_WEATHERBIT;
 const openWeather = process.env.API_KEY_OPENWEATHER;
 const geoName = process.env.API_KEY_GEONAME;
 const pixaBay = process.env.API_KEY_PIXABAY;
+const googleMap = process.env.API_KEY_GOOGLEMAP;
+const shutterStock = process.env.API_KEY_SHUTTERSTOCK;
 console.log(weatherBit, geoName, pixaBay);
 
 // GET Route
@@ -119,6 +121,26 @@ app.post('/countryImage', async(req, res) => {
         fetchCountryImage = `https://pixabay.com/api/?key=${pixaBay}&q=${Country}+travel&image_type=photo&orientation=horizontal`;
         // res.send(fetchCountryImage);
         console.log(`fetchCountryImage : ${fetchCountryImage}`);
+    } catch (error) {
+        console.log(`error : ${error}`);
+    };
+});
+
+// GET Route - Google Map API
+app.post('/map', async(req, res) => {
+    const latitude = req.body.inputLat;
+    const longitude = req.body.inputLng;
+    const response = await fetch(`https://maps.googleapis.com/maps/api/js?key=${googleMap}&callback=${Client.initMap()}`);
+    // console.log(response);
+
+    try {
+        const data = await response.json();
+        // console.log(`data : ${data}`);
+        res.send(data);
+        // debug
+        fetchMap = `https://maps.googleapis.com/maps/api/js?key=${googleMap}&callback=${Client.initMap()}`;
+        // res.send(fetchCountryImage);
+        console.log(`fetchMap : ${fetchMap}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };

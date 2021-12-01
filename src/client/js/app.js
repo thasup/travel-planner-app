@@ -12,6 +12,8 @@ import {updateImage} from './updateImage';
 import {currentDate} from './currentDate';
 import {updateUI} from './updateUI';
 import {updateWeather} from './updateWeather';
+import {initMap} from './initMap';
+import {callMap} from './callMap';
 
 // import html
 import html from "../html/index.html";
@@ -41,4 +43,6 @@ export {
     currentDate,
     updateUI,
     updateWeather,
+    initMap,
+    callMap
 }

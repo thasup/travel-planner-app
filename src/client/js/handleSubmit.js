@@ -35,6 +35,7 @@ export function handleSubmit(event) {
             console.log(inputLat, inputLng, country);
             Client.updateUI(inputPlace, country, inputStartDate, inputEndDate)
             console.log(inputPlace, country, inputStartDate, inputEndDate);
+            // Client.initMap(inputLat, inputLng)
         })
         
         // WeatherBit Fetching
@@ -68,10 +69,6 @@ export function handleSubmit(event) {
                 .then(res => res.json())
                 .then(function(res) {
                     console.log(`::: Initial Fetching Success :::`);
-                    // console.log(res);
-                    // const data = res.data[0];
-                    // city = data.city_name;
-                    // console.log(city);
                     hits = res.totalHits;
 
                     // If images of input place does not exist, fetch country images instead.
@@ -88,17 +85,37 @@ export function handleSubmit(event) {
                             console.log(`::: Fetching Country Image Success :::`);
                             console.log(res);
                             Client.updateImage(res)
+                            Client.callMap()
                         })
                     } else {
                             console.log(`::: Fetching City Image Success :::`);
                             console.log(res);
                             Client.updateImage(res)
+                            Client.callMap()
                     }
                 })
+
+                // // WeatherBit Fetching
+                // .then(function() {
+                //     console.log(`::: GoogleMap Fetching :::`);
+                //     fetch('http://localhost:8888/map', {
+                //     method: 'POST',
+                //     credentials: 'same-origin',           
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ inputLat, inputLng })
+                //     })
+                //     .then(res => res.json())
+                //     .then(function(res) {
+                //         console.log(`::: Fetching Success :::`);
+                //         console.log(res);
+                //         const data = res;
+                //         // Client.initMap()
+                //     })
+                // })
             })
         })
     } else (
         // Run alertError function when error occured
         Client.alertError()
-    );
+    )
 };
