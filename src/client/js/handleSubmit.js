@@ -73,7 +73,7 @@ export function handleSubmit(event) {
 
                     // If images of input place does not exist, fetch country images instead.
                     if (hits === 0) {
-                        console.log(`::: PixaBay Country Image Fetching :::`);
+                        console.log(`::: Fail to Fetch City Image :::`);
                         fetch('http://localhost:8888/countryImage', {
                             method: 'POST',
                             credentials: 'same-origin',           
