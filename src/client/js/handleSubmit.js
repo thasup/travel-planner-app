@@ -33,6 +33,7 @@ export function handleSubmit(event) {
             inputLng = res.geonames[0].lng;
             country = res.geonames[0].countryName;
             console.log(inputLat, inputLng, country);
+
             Client.updateUI(inputPlace, country, inputStartDate, inputEndDate)
             console.log(inputPlace, country, inputStartDate, inputEndDate);
         })
@@ -68,10 +69,6 @@ export function handleSubmit(event) {
                 .then(res => res.json())
                 .then(function(res) {
                     console.log(`::: Initial Fetching Success :::`);
-                    // console.log(res);
-                    // const data = res.data[0];
-                    // city = data.city_name;
-                    // console.log(city);
                     hits = res.totalHits;
 
                     // If images of input place does not exist, fetch country images instead.

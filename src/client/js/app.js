@@ -1,7 +1,7 @@
 // import SCSS
 import '../styles/footer.scss';
 import '../styles/form.scss';
-import '../styles/base.scss';
+import '../styles/grid.scss';
 import '../styles/base.scss';
 import '../styles/overview.scss';
 
@@ -9,7 +9,7 @@ import '../styles/overview.scss';
 import {handleSubmit} from './handleSubmit';
 import {alertError} from './alertError';
 import {updateImage} from './updateImage';
-import {currentDate} from './currentDate';
+import {handleDate} from './handleDate';
 import {updateUI} from './updateUI';
 import {updateWeather} from './updateWeather';
 
@@ -38,7 +38,12 @@ export {
     handleSubmit,
     alertError,
     updateImage,
-    currentDate,
+    handleDate,
     updateUI,
     updateWeather,
 }
+
+// Run handleDate function when page loaded
+window.addEventListener("load", (event) => {
+    Client.handleDate()
+});
