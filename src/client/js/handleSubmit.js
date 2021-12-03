@@ -6,6 +6,7 @@ export function handleSubmit(event) {
     let inputLng;
     let country;
     let city;
+    let countryCode;
     let hits;
 
     let inputPlace = document.getElementById('place').value;
@@ -63,11 +64,12 @@ export function handleSubmit(event) {
                 console.log(`::: Fetching Success :::`);
                 const data = res;
                 city = res.city_name;
+                countryCode = res.country_code;
                 Client.updateWeather(data, duration, departDateValue)
 
                 // Debug
                 console.log(res);
-                console.log(city);
+                console.log({city, countryCode});
             })
 
             // PixaBay Fetching
@@ -113,13 +115,13 @@ export function handleSubmit(event) {
                         method: 'POST',
                         credentials: 'same-origin',           
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ country })
+                        body: JSON.stringify({ countryCode })
                     })
                     .then(res => res.json())
                     .then(function(res) {
                         console.log(`::: Fetching Success :::`);
                         const data = res;
-                        Client.updateUI(inputPlace, country, inputStartDate, inputEndDate, data)
+                        Client.updateUI(inputPlace, country, inputStartDate, inputEndDate, duration, data)
 
                         // Debug
                         console.log(res);

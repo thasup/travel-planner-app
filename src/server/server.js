@@ -126,8 +126,8 @@ app.post('/countryImage', async(req, res) => {
 
 // GET Route - RestCountry API
 app.post('/countryInfo', async(req, res) => {
-    const Country = req.body.country;
-    const response = await fetch(`https://restcountries.com/v2/name/${Country}`);
+    const CountryCode = req.body.countryCode;
+    const response = await fetch(`https://restcountries.com/v2/alpha?codes=${CountryCode}`);
     // console.log(response);
 
     try {
@@ -135,7 +135,7 @@ app.post('/countryInfo', async(req, res) => {
         // console.log(`data : ${data}`);
         res.send(data);
         // debug
-        fetchCountryInfo = `https://restcountries.com/v2/name/${Country}`;
+        fetchCountryInfo = `https://restcountries.com/v2/alpha?codes=${CountryCode}`;
         // res.send(fetchCountryImage);
         console.log(`fetchCountryInfo : ${fetchCountryInfo}`);
     } catch (error) {

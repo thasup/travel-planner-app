@@ -16,6 +16,5 @@ export function handleTab(e, tabName) {
         };
 
         document.getElementById(tabName).classList.remove('none');
-        document.getElementById(tabName).style.display = "block";
     };
 };

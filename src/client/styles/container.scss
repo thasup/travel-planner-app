@@ -57,10 +57,54 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
 #overview-container {
     grid-area: 2/1/-1/-1;
     display: grid;
-    padding: 0px 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, auto);
+    padding: 15px 40px;
+    align-items: center;
+    justify-items: stretch;
 
-    p{
-        max-width: 900px;
+    #highlight {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    #keys {
+        font-weight: bold;
+    }
+
+    p:nth-child(1) {
+        grid-area: 1/1/2/2;
+    }
+
+    p:nth-child(2) {
+        grid-area: 2/1/3/2;
+    }
+
+    #flag {
+        grid-area: 1/2/-1/-1;
+        width: 500px;
+        border-radius: 15px;
+        box-shadow: 10px 5px 10px $my-black;
+    }
+
+    p:nth-child(4) {
+        grid-area: 3/1/4/2;
+    }
+
+    p:nth-child(5) {
+        grid-area: 4/1/5/2;
+    }
+
+    p:nth-child(6) {
+        grid-area: 5/1/6/2;
+    }
+
+    p:nth-child(7) {
+        grid-area: 6/1/7/2;
+    }
+
+    p:nth-child(8) {
+        grid-area: 7/1/-1/2;
     }
 }
 
@@ -77,6 +121,7 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
         
         .forecast-summary {
             display: flex;
@@ -85,7 +130,7 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
             background-color: $my-grey;
             box-shadow: 10px 5px 5px rgb(119, 119, 119);
             border-radius: 15px;
-            padding: 5px;
+            padding: 7px;
             margin: 0px 10px;
 
             div {
@@ -109,6 +154,7 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
         margin: 20px 0px;
 
         .forecast-detail {
