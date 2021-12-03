@@ -1,29 +1,45 @@
-export function updateWeather(data) {
-    // Define Variables
-    const city = document.querySelector('#place');
-    const date = document.querySelector('#date');
-    const icon = document.querySelector('#icon');
-    const temperature = document.querySelector('#temp');
-    const condition = document.querySelector('#condition');
-
-    const precipitation = document.querySelector('#precipitation');
-    const windSpeed = document.querySelector('#wind-speed');
-    const humidity = document.querySelector('#humidity');
-    const pressure = document.querySelector('#pressure');
-    const visibility = document.querySelector('#visibility');
-
+export function updateWeather(data, duration, dayCount) {
+    // Define variables
+    const forecastSummaryList = document.querySelector('.forecast-summary-list');
+    const forecastDetailList = document.querySelector('.forecast-detail-list');
     const iconPath = 'https://www.weatherbit.io/static/img/icons/';
 
-    // Update UI
-    city.innerHTML = `${data.city_name}`;
-    date.innerHTML = `${data.data[0].valid_date}`;
-    icon.innerHTML = `<img src="${iconPath}${data.data[0].weather.icon}.png" alt="" width="50%" height="50%"/>`;
-    temperature.innerHTML = `${data.data[0].temp} <span id="cel">°C</span>`;
-    condition.innerHTML = `${data.data[0].weather.description}`;
+    // Add HTML content to <div> elements
+    // const addForecastList = (limit) => {
+        
+    // };
 
-    precipitation.innerHTML = `Precipitation   ${data.data[0].pop} %`;
-    windSpeed.innerHTML = `Wind Speed   ${data.data[0].wind_spd} m/s`;
-    humidity.innerHTML = `Humidity   ${data.data[0].rh} %`;
-    pressure.innerHTML = `Pressure   ${Math.round(data.data[0].pres)} mb`;
-    visibility.innerHTML = `Visibility   ${Math.round(data.data[0].vis)} km`
+    for (let j = 0 ; j < duration ; j++) {
+        const index = j + dayCount;
+        const year = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const adjDate = new Date(data.data[index].valid_date);
+        const dd = adjDate.getDate();
+        const mm = adjDate.getMonth();
+        const shortDate = `${dd} ${year[mm]}`;
+
+        forecastSummaryList.innerHTML +=   `<div class="forecast-summary" id="forecast-summary-${j}">
+                                                <div id="date">${shortDate}</div>
+                                                <div id="icon"><img id="weather-icon" src="${iconPath}${data.data[index].weather.icon}.png" alt="Weather_Icon"/></div>
+                                                <div id="temp">${data.data[index].temp} <span id="cel">°C</span></div>
+                                                <div id="condition">${data.data[index].weather.description}</div>
+                                            </div>`;
+
+        forecastDetailList.innerHTML +=    `<div class="forecast-detail" id="forecast-detail-${j}">
+                                                <div id="precipitation">Precipitation   ${data.data[index].pop} %</div>
+                                                <div id="wind-speed">Wind Speed   ${data.data[index].wind_spd} m/s</div>
+                                                <div id="humidity">Humidity   ${data.data[index].rh} %</div>
+                                                <div id="pressure">Pressure   ${Math.round(data.data[index].pres)} mb</div>
+                                                <div id="visibility">Visibility   ${Math.round(data.data[index].vis)} km</div>
+                                            </div>`;
+        // Debug
+        console.log(`j = ${j} : Add weather data to <div> elements`)
+        console.log(`index = ${index}`)
+    };
+    
+    // Check if it can fetch weather forecast or not
+    // if ((0 <= Client.departDateValue < 16) && (0 <= Client.returnDateValue < 16)) {
+    //     addForecastList(Client.duration);
+    // } else {
+    //     addForecastList(7);
+    // };
 };

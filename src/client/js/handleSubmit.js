@@ -19,12 +19,11 @@ export function handleSubmit(event) {
 
     let departDateValue = getStartDate.getDate() - getTodayDate.getDate(); // 6
     let returnDateValue = getEndDate.getDate() - getTodayDate.getDate(); // 9
-    let dayCount = getEndDate.getDate() - getStartDate.getDate(); // for updateWeather function
-    let duration = dayCount + 1; // 4
+    let duration = getEndDate.getDate() - getStartDate.getDate() + 1; // 4
 
     // Debug
     console.log({getStartDate, getEndDate, getTodayDate});
-    console.log({departDateValue, returnDateValue, dayCount, duration});
+    console.log({departDateValue, returnDateValue, duration});
 
     // POST request to server side
     if(inputPlace !== '') {
@@ -65,7 +64,7 @@ export function handleSubmit(event) {
                 console.log(`::: Fetching Success :::`);
                 const data = res;
                 city = res.city_name;
-                Client.updateWeather(data)
+                Client.updateWeather(data, duration, departDateValue)
 
                 // Debug
                 console.log(res);
