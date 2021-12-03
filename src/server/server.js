@@ -123,3 +123,22 @@ app.post('/countryImage', async(req, res) => {
         console.log(`error : ${error}`);
     };
 });
+
+// GET Route - RestCountry API
+app.post('/countryInfo', async(req, res) => {
+    const Country = req.body.country;
+    const response = await fetch(`https://restcountries.com/v2/name/${Country}`);
+    // console.log(response);
+
+    try {
+        const data = await response.json();
+        // console.log(`data : ${data}`);
+        res.send(data);
+        // debug
+        fetchCountryInfo = `https://restcountries.com/v2/name/${Country}`;
+        // res.send(fetchCountryImage);
+        console.log(`fetchCountryInfo : ${fetchCountryInfo}`);
+    } catch (error) {
+        console.log(`error : ${error}`);
+    };
+});

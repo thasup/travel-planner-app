@@ -42,7 +42,6 @@ export function handleSubmit(event) {
             inputLat = res.geonames[0].lat;
             inputLng = res.geonames[0].lng;
             country = res.geonames[0].countryName;
-            Client.updateUI(inputPlace, country, inputStartDate, inputEndDate)
 
             // Debug
             console.log(res);
@@ -106,8 +105,28 @@ export function handleSubmit(event) {
                             Client.updateImage(res)
                     }
                 })
-            })
-        })
+
+                // RestCountry Fetching
+                .then(function() {
+                    console.log(`::: RestCountry Fetching :::`);
+                    fetch('http://localhost:8888/countryInfo', {
+                        method: 'POST',
+                        credentials: 'same-origin',           
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ country })
+                    })
+                    .then(res => res.json())
+                    .then(function(res) {
+                        console.log(`::: Fetching Success :::`);
+                        const data = res;
+                        Client.updateUI(inputPlace, country, inputStartDate, inputEndDate, data)
+
+                        // Debug
+                        console.log(res);
+                    });
+                });
+            });
+        });
     } else {
         // Run alertError function when error occured
         const errorMsg = document.querySelector('#error-msg');
