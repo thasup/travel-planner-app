@@ -10,7 +10,7 @@
     <title>Travel App</title>
 </head>
 <body>
-    <main>
+    <main class="main">
         <section class="head"></section>
         <section class="form">
             <h3 class="headline">Where Would You Like To Go?</h3>
@@ -30,17 +30,18 @@
                 </div>
                 <input type="submit" id="submit" value="Let's Plan!">
             </form>
-            <!-- <div id="map"></div> -->
         </section>
         <section class="detail">
-            <div class="selector">
-                <div class="selector-list">
+            <div class="menu">
+                <div class="menu-list">
                     <p id="overview-tab">Overview</p>
                     <p id="forecast-tab">Forecast</p>
                     <p id="country-tab"></p>
                 </div>
             </div>
+
             <div class="overview-container"></div>
+
             <div class="weather-container">
                 <div class="forecast-main">
                     <ul class="forecast-main-list">
@@ -68,7 +69,9 @@
                 </div>
             </div>
         </section>
-        <div id="background-img"></div>
+        <div class="background-img">
+            <div class="images" id="img-0"></div>
+        </div>
     </main>
     <footer>
         <div class="social">

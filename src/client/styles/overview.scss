@@ -3,10 +3,27 @@
     width: 100%;
 }
 
-.selector-list {
+.menu-list {
     display: none;
 }
 
 li {
     display: inline-block;
+}
+
+.--active-image {
+    display: block !important;
+}
+
+.images {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: -1;
+    opacity: 0.75;
+    display: none;
+    grid-area: 1/1/-1/-1;
+    text-align: center;
+    justify-content: center;
 }

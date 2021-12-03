@@ -47,3 +47,34 @@ export {
 window.addEventListener("load", (event) => {
     Client.handleDate()
 });
+
+window.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Define time length for wait
+    const wait = 6000;
+
+    const toggleActive = (element, index, maxIndex) => {
+        setTimeout(() => {
+            element.classList.add('--active-image');
+            setTimeout(() => {
+                element.classList.remove('--active-image');
+                if (index === maxIndex) {
+                    runLoop();
+                };
+            }, wait);
+        }, wait * index);  
+    };
+
+    const runLoop = () => {
+        const allImage = document.getElementsByClassName('images');
+   
+        for (let index = 0; index < allImage.length; index++) {
+            const element = allImage[index];
+            toggleActive(element, index, allImage.length - 1);
+        };
+    };
+    
+    // Initial run 'runLoop' function
+    runLoop();
+});
