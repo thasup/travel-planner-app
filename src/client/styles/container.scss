@@ -1,11 +1,10 @@
-#map {
-    height: 400px;
-    width: 100%;
-}
-
-li {
-    display: inline-block;
-}
+$font-stack-1: 'Varela Round', 'sans-serif';
+$my-black: #1d1d1f;
+$my-white: #fff;
+$my-grey: rgba(204, 204, 204);
+$main-theme-color: #344955;
+$sub-theme-color: #77dbff;
+$shadow: 2px 2px 3px rgb(56, 56, 56);
 
 .--active-image {
     display: block !important;
@@ -32,33 +31,94 @@ li {
     .menu-list {
         display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: flex-start;
-        margin-left: 100px;
-        width: 100%;
+        width: 1200px;
+        font-weight: bold;
 
         p {
             margin-right: 30px;
+            padding: 7px 15px;
 
             &:hover {
                 cursor: pointer;
                 color: red;
             }
         }
+
+        .--active-tab {
+            background-color: $main-theme-color;
+            color: $my-white;
+            border-radius: 7px;
+        }
     }
     
 }
 
-.container {
-    display: none;
+#overview-container {
+    grid-area: 2/1/-1/-1;
+    display: grid;
+    padding: 0px 40px;
+
+    p{
+        max-width: 900px;
+    }
 }
 
-.overview-container {
-    grid-area: 2/1/-1/2;
-    display: grid;
-}
+#weather-container {
+    grid-area: 2/1/-1/-1;
+    display: flex;
+    flex-direction: column;
+    
+    width: auto;
 
-.weather-container {
-    grid-area: 2/2/-1/-1;
-    display: grid;
+    
+
+    .forecast-summary-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        .forecast-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $my-grey;
+            box-shadow: 10px 5px 5px rgb(119, 119, 119);
+            border-radius: 15px;
+            padding: 5px;
+            margin: 0px 10px;
+
+            div {
+            margin: 0px 20px;
+            }
+
+            #weather-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            #date {
+                font-size: 1.15em;
+                font-weight: bold;
+            }
+        }
+        
+    }
+
+    .forecast-detail-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 20px 0px;
+
+        .forecast-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            div {
+                margin: 10px 5px;
+            }
+        }
+    }
 }
