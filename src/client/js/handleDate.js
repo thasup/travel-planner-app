@@ -42,10 +42,5 @@ export function handleDate() {
     document.getElementById("start-date").setAttribute("min", minDay);
     document.getElementById("end-date").setAttribute("min", minDay);
 
-    // Calculate trip duration from input
-    // const duration = () => {
-
-    // };
-
     return today, todayNameMonth, minDay;
 };

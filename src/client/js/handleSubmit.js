@@ -12,7 +12,19 @@ export function handleSubmit(event) {
     let inputStartDate = document.getElementById('start-date').value;
     let inputEndDate = document.getElementById('end-date').value;
 
-    console.log(inputPlace, inputStartDate, inputEndDate);
+    // Calculate date from input data
+    let getStartDate = new Date(inputStartDate);
+    let getEndDate = new Date(inputEndDate);
+    let getTodayDate = new Date();
+
+    let departDateValue = getStartDate.getDate() - getTodayDate.getDate(); // 6
+    let returnDateValue = getEndDate.getDate() - getTodayDate.getDate(); // 9
+    let dayCount = getEndDate.getDate() - getStartDate.getDate(); // for updateWeather function
+    let duration = dayCount + 1; // 4
+
+    // Debug
+    console.log({getStartDate, getEndDate, getTodayDate});
+    console.log({departDateValue, returnDateValue, dayCount, duration});
 
     // POST request to server side
     if(inputPlace !== '') {
@@ -28,14 +40,15 @@ export function handleSubmit(event) {
         .then(res => res.json())
         .then(function(res) {
             console.log(`::: Fetching Success :::`);
-            console.log(res);
             inputLat = res.geonames[0].lat;
             inputLng = res.geonames[0].lng;
             country = res.geonames[0].countryName;
-            console.log(inputLat, inputLng, country);
-
             Client.updateUI(inputPlace, country, inputStartDate, inputEndDate)
-            console.log(inputPlace, country, inputStartDate, inputEndDate);
+
+            // Debug
+            console.log(res);
+            console.log({inputLat, inputLng, country});
+            console.log({inputPlace, country, inputStartDate, inputEndDate});
         })
         
         // WeatherBit Fetching
@@ -50,11 +63,13 @@ export function handleSubmit(event) {
             .then(res => res.json())
             .then(function(res) {
                 console.log(`::: Fetching Success :::`);
-                console.log(res);
                 const data = res;
                 city = res.city_name;
-                console.log(city);
                 Client.updateWeather(data)
+
+                // Debug
+                console.log(res);
+                console.log(city);
             })
 
             // PixaBay Fetching
