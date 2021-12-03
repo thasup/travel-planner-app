@@ -16,8 +16,8 @@
             <form class="form-panel" onsubmit="return Client.handleSubmit(event)">
                 <div class="place-panel">
                     <label for="place" class="panel-name">Destination</label> 
-                    <input type="text" name="place" id="place" placeholder="Enter your destination here">
-                    <p id="error-msg">Please Enter Your Destination.</p>
+                    <input type="text" name="place" id="place" placeholder="Enter Your Destination Here">
+                    <div id="error-msg">Please Enter Your Destination.</div>
                 </div>
                 <div class="start-date-panel">
                     <label for="start-date" class="panel-name">Start Date</label>        
@@ -30,18 +30,17 @@
                 <input type="submit" id="submit" value="Let's Plan!">
             </form>
         </section>
-        <section class="detail">
+        <section class="detail none">
             <div class="menu-container">
                 <div class="menu-list">
-                    <p class="tabs" id="overview-tab" onclick="Client.handleTab(event, 'overview-container')">Overview</p>
+                    <p class="tabs --active-tab" id="overview-tab" onclick="Client.handleTab(event, 'overview-container')">Overview</p>
                     <p class="tabs" id="forecast-tab" onclick="Client.handleTab(event, 'weather-container')">Forecast</p>
-                    <p class="tabs" id="country-tab" onclick="Client.handleTab(event, 'country-container')"></p>
                 </div>
             </div>
 
             <div class="container" id="overview-container"></div>
 
-            <div class="container" id="weather-container">
+            <div class="container none" id="weather-container">
                 <div class="forecast-summary-list"></div>
                 <div class="forecast-detail-list"></div>
             </div>

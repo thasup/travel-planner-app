@@ -75,7 +75,13 @@ window.addEventListener("submit", (event) => {
             toggleActive(element, index, allImage.length - 1);
         };
     };
-    
-    // Initial run 'runLoop' function
+
+    const showDetail = () => {
+        const detail = document.getElementsByClassName('detail')[0];
+        detail.classList.remove('none');
+    };
+
+    // Run function
     runLoop();
+    showDetail();
 });

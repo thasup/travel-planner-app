@@ -1,22 +1,21 @@
-export function handleTab(evt, tabName) {
-  // Declare all variables
-  let i;
-  const tabcontent = document.getElementsByClassName('container');
-  const tablinks = document.getElementsByClassName('tabs');
+export function handleTab(e, tabName) {
+    const tablinks = document.getElementsByClassName('tabs');
+    const tabcontent = document.getElementsByClassName('container');
+    
+    const clickedTab = e.target;
+    
+    if(!clickedTab.classList.contains('--active-tab')){         
+        for (let i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove('--active-tab');
+        };
 
-  // Get all elements with class="tabcontent" and hide them
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].classList.add('none');
-  }
+        clickedTab.classList.add('--active-tab');
 
-  // Get all elements with class="tablinks" and remove the class "--active-tab"
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" --active-tab", "");
-  }
+        for (let i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.add('none');
+        };
 
-  // Show the current tab, and add an "--active-tab" class to the button that opened the tab
-  document.getElementById(tabName).classList.remove('none');
-  document.getElementById(tabName).style.display = "block";
-  
-  evt.currentTarget.className += " --active-tab";
+        document.getElementById(tabName).classList.remove('none');
+        document.getElementById(tabName).style.display = "block";
+    };
 };
