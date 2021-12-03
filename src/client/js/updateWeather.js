@@ -5,10 +5,6 @@ export function updateWeather(data, duration, dayCount) {
     const iconPath = 'https://www.weatherbit.io/static/img/icons/';
 
     // Add HTML content to <div> elements
-    // const addForecastList = (limit) => {
-        
-    // };
-
     for (let j = 0 ; j < duration ; j++) {
         const index = j + dayCount;
         const year = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

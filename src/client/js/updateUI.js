@@ -1,5 +1,4 @@
 export function updateUI(cityData, countryData, startDateData, endDateData, duration, data) {
-
 // =====================
 // Update Menu Container
 // =====================
