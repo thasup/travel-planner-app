@@ -108,8 +108,9 @@ export function handleSubmit(event) {
                 })
             })
         })
-    } else (
+    } else {
         // Run alertError function when error occured
-        Client.alertError()
-    );
+        const errorMsg = document.querySelector('#error-msg');
+        errorMsg.style.display = "block";
+    };
 };

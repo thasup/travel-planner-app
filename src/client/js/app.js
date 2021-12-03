@@ -3,11 +3,11 @@ import '../styles/footer.scss';
 import '../styles/form.scss';
 import '../styles/grid.scss';
 import '../styles/base.scss';
-import '../styles/overview.scss';
+import '../styles/container.scss';
 
 // import JS
 import {handleSubmit} from './handleSubmit';
-import {alertError} from './alertError';
+import {handleTab} from './handleTab';
 import {updateImage} from './updateImage';
 import {handleDate} from './handleDate';
 import {updateUI} from './updateUI';
@@ -36,7 +36,7 @@ import linkedin from '../media/linkedin.png';
 // global export
 export {
     handleSubmit,
-    alertError,
+    handleTab,
     updateImage,
     handleDate,
     updateUI,
@@ -48,6 +48,7 @@ window.addEventListener("load", (event) => {
     Client.handleDate()
 });
 
+// Automatic change background image with setTimeout loop
 window.addEventListener("submit", (event) => {
     event.preventDefault();
 

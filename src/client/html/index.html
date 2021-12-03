@@ -11,7 +11,6 @@
 </head>
 <body>
     <main class="main">
-        <section class="head"></section>
         <section class="form">
             <h3 class="headline">Where Would You Like To Go?</h3>
             <form class="form-panel" onsubmit="return Client.handleSubmit(event)">
@@ -32,17 +31,17 @@
             </form>
         </section>
         <section class="detail">
-            <div class="menu">
+            <div class="menu-container">
                 <div class="menu-list">
-                    <p id="overview-tab">Overview</p>
-                    <p id="forecast-tab">Forecast</p>
-                    <p id="country-tab"></p>
+                    <p class="tabs" id="overview-tab" onclick="Client.handleTab(event, 'overview-container')">Overview</p>
+                    <p class="tabs" id="forecast-tab" onclick="Client.handleTab(event, 'weather-container')">Forecast</p>
+                    <p class="tabs" id="country-tab" onclick="Client.handleTab(event, 'country-container')"></p>
                 </div>
             </div>
 
-            <div class="overview-container"></div>
+            <div class="container" id="overview-container"></div>
 
-            <div class="weather-container">
+            <div class="container" id="weather-container">
                 <div class="forecast-summary-list"></div>
                 <div class="forecast-detail-list"></div>
             </div>

@@ -1,0 +1,64 @@
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+li {
+    display: inline-block;
+}
+
+.--active-image {
+    display: block !important;
+}
+
+.images {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: -1;
+    opacity: 0.75;
+    display: none;
+    grid-area: 1/1/-1/-1;
+    text-align: center;
+    justify-content: center;
+}
+
+.menu-container {
+    grid-area: 1/1/2/-1;
+    width: 100%;
+    display: none;
+    
+    .menu-list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 100px;
+        width: 100%;
+
+        p {
+            margin-right: 30px;
+
+            &:hover {
+                cursor: pointer;
+                color: red;
+            }
+        }
+    }
+    
+}
+
+.container {
+    display: none;
+}
+
+.overview-container {
+    grid-area: 2/1/-1/2;
+    display: grid;
+}
+
+.weather-container {
+    grid-area: 2/2/-1/-1;
+    display: grid;
+}
