@@ -16,9 +16,10 @@ export function handleDate() {
         'November', 
         'December'];
     let dd = localDate.getDate();
-    let mm = year[localDate.getMonth()];
+    let mm = localDate.getMonth();
     let yy = localDate.getFullYear();
-    let today = `${dd} ${mm} ${yy}`;
+    let today = `${yy}-${mm + 1}-${dd}`;
+    let todayNameMonth = `${dd} ${year[mm]} ${yy}`;
 
     // Prevent date input to be able to select previous date
     let DD = localDate.getDate();
@@ -34,12 +35,17 @@ export function handleDate() {
 
     let minDay = `${yy}-${MM}-${DD}`;
 
-    console.log({today, minDay});
+    // Debug
+    let xxx = {today, todayNameMonth, minDay};
+    console.log(xxx);
 
     document.getElementById("start-date").setAttribute("min", minDay);
     document.getElementById("end-date").setAttribute("min", minDay);
 
     // Calculate trip duration from input
+    // const duration = () => {
 
-    return today, minDay;
+    // };
+
+    return today, todayNameMonth, minDay;
 };
