@@ -12,6 +12,7 @@ import {updateImage} from './updateImage';
 import {handleDate} from './handleDate';
 import {updateUI} from './updateUI';
 import {updateWeather} from './updateWeather';
+import {deleteTrip} from './deleteTrip';
 
 // import html
 import html from "../html/index.html";
@@ -29,6 +30,7 @@ export {
     handleDate,
     updateUI,
     updateWeather,
+    deleteTrip
 }
 
 // Run handleDate function when page loaded
