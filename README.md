@@ -1,5 +1,5 @@
 <!-- Add banner here -->
-![Project Preview](docs/453453.gif)
+![Project Preview](docs/435423.gif)
 
 # My-Travel-App
 
