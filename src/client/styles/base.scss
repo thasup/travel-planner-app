@@ -1,5 +1,13 @@
+$font-stack-1: 'Varela Round', 'sans-serif';
+$my-black: #1d1d1f;
+$my-white: #fff;
+$my-grey: rgba(204, 204, 204);
+$main-theme-color: #344955;
+$sub-theme-color: #77dbff;
+$shadow: 2px 2px 3px rgb(56, 56, 56);
+
 body {
-    font-family: 'Varela Round', sans-serif;
+    font-family: $font-stack-1;
     max-height: 100vh;
     margin: 0px;
     display: grid;
@@ -20,4 +28,11 @@ footer {
 
 .none {
     display: none !important;
+}
+
+/* Mobile Size */
+@media screen and (max-width: 800px) {
+    * {
+        font-size: 0.95em;
+    }
 }

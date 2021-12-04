@@ -1,15 +1,5 @@
 export function updateUI(cityData, countryData, startDateData, endDateData, duration, data) {
-// =====================
-// Update Menu Container
-// =====================
-    const menu = document.querySelector('.menu-container');
-
-    // Show menu tab
-    menu.style.display = "block";
-
-// =========================
-// Update Overview Container
-// =========================
+    // Update Overview Container
     const year = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const adjStartDate = new Date(startDateData);
     const adjEndDate = new Date(endDateData);

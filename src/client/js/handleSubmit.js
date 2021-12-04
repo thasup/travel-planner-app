@@ -18,9 +18,14 @@ export function handleSubmit(event) {
     let getEndDate = new Date(inputEndDate);
     let getTodayDate = new Date();
 
-    let departDateValue = getStartDate.getDate() - getTodayDate.getDate(); // 6
-    let returnDateValue = getEndDate.getDate() - getTodayDate.getDate(); // 9
-    let duration = getEndDate.getDate() - getStartDate.getDate() + 1; // 4
+    let departDateValue = getStartDate.getDate() - getTodayDate.getDate();
+    let returnDateValue = getEndDate.getDate() - getTodayDate.getDate();
+    let duration = getEndDate.getDate() - getStartDate.getDate() + 1;
+
+    if (((0 <= departDateValue < 16) && (0 <= returnDateValue < 16)) === false) {
+        departDateValue = 0;
+        returnDateValue = 6;
+    };
 
     // Debug
     console.log({getStartDate, getEndDate, getTodayDate});
@@ -65,7 +70,7 @@ export function handleSubmit(event) {
                 const data = res;
                 city = res.city_name;
                 countryCode = res.country_code;
-                Client.updateWeather(data, duration, departDateValue)
+                Client.updateWeather(data, duration, departDateValue, departDateValue, returnDateValue);
 
                 // Debug
                 console.log(res);
@@ -99,12 +104,12 @@ export function handleSubmit(event) {
                         .then(function(res) {
                             console.log(`::: Fetching Country Image Success :::`);
                             console.log(res);
-                            Client.updateImage(res)
+                            Client.updateImage(res);
                         })
                     } else {
                             console.log(`::: Fetching City Image Success :::`);
                             console.log(res);
-                            Client.updateImage(res)
+                            Client.updateImage(res);
                     }
                 })
 
@@ -121,10 +126,17 @@ export function handleSubmit(event) {
                     .then(function(res) {
                         console.log(`::: Fetching Success :::`);
                         const data = res;
-                        Client.updateUI(inputPlace, country, inputStartDate, inputEndDate, duration, data)
+                        Client.updateUI(inputPlace, country, inputStartDate, inputEndDate, duration, data);
 
                         // Debug
                         console.log(res);
+                    })
+
+                    // Clear input
+                    .then(function() {
+                        document.getElementById('place').value = '';
+                        document.getElementById('start-date').value = '';
+                        document.getElementById('end-date').value = '';
                     });
                 });
             });

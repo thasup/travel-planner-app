@@ -23,8 +23,7 @@ form {
         flex-direction: column;
         
         input {
-            // min-width: 300px;
-            padding: 6px 125px;
+            padding: 6px 130px;
             border-radius: 5px;
         }
 
@@ -83,3 +82,26 @@ form {
     }
 }
 
+/* Mobile Size */
+@media screen and (max-width: 800px) {
+    .place-panel {
+        
+        input {
+            padding: 6px 85px;
+        }
+    }
+
+    .start-date-panel {
+        
+        input {
+            padding: 3px 9px;
+        }
+    }
+
+    .end-date-panel {
+
+        input {
+            padding: 3px 9px;
+        }
+    }
+}

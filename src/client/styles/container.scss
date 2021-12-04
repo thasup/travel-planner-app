@@ -26,7 +26,6 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
 .menu-container {
     grid-area: 1/1/2/-1;
     width: 100%;
-    display: none;
     
     .menu-list {
         display: flex;
@@ -165,6 +164,20 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
             div {
                 margin: 10px 5px;
             }
+        }
+    }
+}
+
+/* Mobile Size */
+@media screen and (max-width: 800px) {
+    #overview-container {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 40px;
+    
+        #flag {
+            margin: 15px 0px;
+            width: 200px;
         }
     }
 }

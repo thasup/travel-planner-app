@@ -51,7 +51,6 @@ app.post('/place', async(req, res) => {
     try {
         const data = await response.json();
         res.send(data);
-        console.log(`fetchPlace : ${fetchPlace}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
@@ -66,7 +65,6 @@ app.post('/forecast', async(req, res) => {
     try {
         const data = await response.json();
         res.send(data);
-        console.log(`fetchForecast : ${fetchForecast}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
@@ -81,7 +79,6 @@ app.post('/image', async(req, res) => {
     try {
         const data = await response.json();
         res.send(data);
-        console.log(`fetchImage : ${fetchImage}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
@@ -96,7 +93,6 @@ app.post('/countryImage', async(req, res) => {
     try {
         const data = await response.json();
         res.send(data);
-        console.log(`fetchCountryImage : ${fetchCountryImage}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
@@ -110,7 +106,6 @@ app.post('/countryInfo', async(req, res) => {
     try {
         const data = await response.json();
         res.send(data);
-        console.log(`fetchCountryInfo : ${fetchCountryInfo}`);
     } catch (error) {
         console.log(`error : ${error}`);
     };
