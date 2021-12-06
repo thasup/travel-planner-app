@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 // Defines the port number 
-const port = 8888;
+const port = process.env.PORT;
 
 /* Spin up the server*/
 const server = app.listen(port, listening);
