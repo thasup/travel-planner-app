@@ -4,7 +4,11 @@
 # My-Travel-App
 
 <!-- Describe your project in brief -->
-this project is part of Udacity front end web developer nanodegree program.
+This project is travel app that obtains a desired trip location & date from the user, and displays weather forecast, country information and an image of the location using information obtained from external APIs.
+
+*this project is part of Udacity front end web developer nanodegree program.*
+
+[My Travel App Link](https://thasup-travel-app.herokuapp.com/)
 
 # Table of contents
 
@@ -37,10 +41,10 @@ this project is part of Udacity front end web developer nanodegree program.
 
 # How to get your API key
 [(Back to top)](#table-of-contents)
+
 [GeoName API](http://www.geonames.org/export/web-services.html)
 [WeatherBit API](https://www.weatherbit.io/account/create)
 [PixaBay API](https://pixabay.com/api/docs/)
-[RestCountry API](https://restcountries.com/)
 
 # Dependencies
 [(Back to top)](#table-of-contents)
@@ -59,7 +63,7 @@ this project is part of Udacity front end web developer nanodegree program.
 [(Back to top)](#table-of-contents)
 
 - html
-- css/scss
+- scss
 - javascript
 - DOM
 - node.js
@@ -67,4 +71,4 @@ this project is part of Udacity front end web developer nanodegree program.
 - API
 - webpack
 - service worker
-- jest
+- Heroku
