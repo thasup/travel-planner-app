@@ -4,7 +4,7 @@
 # My-Travel-App
 
 <!-- Describe your project in brief -->
-This project is travel app that obtains a desired trip location & date from the user, and displays weather forecast, country information and an image of the location using information obtained from external APIs.
+This project is a travel app that obtains a desired trip location & date from the user and displays weather forecast, country information, and an image of the location using information obtained from external APIs.
 
 *this project is part of Udacity front end web developer nanodegree program.*
 
@@ -43,7 +43,9 @@ This project is travel app that obtains a desired trip location & date from the 
 [(Back to top)](#table-of-contents)
 
 [GeoName API](http://www.geonames.org/export/web-services.html)
+
 [WeatherBit API](https://www.weatherbit.io/account/create)
+
 [PixaBay API](https://pixabay.com/api/docs/)
 
 # Dependencies
