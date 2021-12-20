@@ -36,8 +36,7 @@ export function handleDate() {
     let minDay = `${yy}-${MM}-${DD}`;
 
     // Debug
-    let xxx = {today, todayNameMonth, minDay};
-    console.log(xxx);
+    console.log({today, todayNameMonth, minDay});
 
     document.getElementById("start-date").setAttribute("min", minDay);
     document.getElementById("end-date").setAttribute("min", minDay);

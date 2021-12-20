@@ -14,6 +14,7 @@ import {handleDate} from './handleDate';
 import {updateUI} from './updateUI';
 import {updateWeather} from './updateWeather';
 import {handleLoader} from './handleLoader';
+import {loopImage} from './loopImage';
 
 // import html
 import html from "../html/index.html";
@@ -33,7 +34,8 @@ export {
     handleDate,
     updateUI,
     updateWeather,
-    handleLoader
+    handleLoader,
+    loopImage
 }
 
 // Run handleDate function when page loaded
@@ -45,36 +47,5 @@ window.addEventListener("load", (event) => {
 window.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    // Define time length for wait
-    const wait = 6000;
-
-    const toggleActive = (element, index, maxIndex) => {
-        setTimeout(() => {
-            element.classList.add('--active-image');
-            setTimeout(() => {
-                element.classList.remove('--active-image');
-                if (index === maxIndex) {
-                    runLoop();
-                };
-            }, wait);
-        }, wait * index);  
-    };
-
-    const runLoop = () => {
-        const allImage = document.getElementsByClassName('images');
-   
-        for (let index = 0; index < allImage.length; index++) {
-            const element = allImage[index];
-            toggleActive(element, index, allImage.length - 1);
-        };
-    };
-
-    const showDetail = () => {
-        const detail = document.getElementsByClassName('detail')[0];
-        detail.classList.remove('none');
-    };
-
-    // Run function
-    runLoop();
-    showDetail();
+    Client.loopImage();
 });

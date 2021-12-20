@@ -32,6 +32,7 @@ export function handleSubmit(event) {
     console.log({departDateValue, returnDateValue, duration});
 
     Client.handleLoader();
+    
 
     // POST request to server side
     if(inputPlace !== '') {

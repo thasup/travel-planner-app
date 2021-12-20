@@ -7,13 +7,13 @@ export function updateImage(data) {
     const imgNumber = 7;
 
     const initialBackground = document.querySelector('.images');
-    initialBackground.style.backgroundImage = `url(${data.hits[0].largeImageURL})`;
+    initialBackground.style.backgroundImage = `url(${data.hits[0].webformatURL})`;
 
     // Build new <div> for store background images
     for (let i = 1; i < totalImage && i < imgNumber; i++) {
 
         const newDiv = document.createElement('div');
-        const imgURL = data.hits[i].largeImageURL;
+        const imgURL = data.hits[i].webformatURL;
         
         const imgStyle =   `background-image: url(${imgURL});`;
 
