@@ -22,6 +22,8 @@ export function handleSubmit(event) {
     let returnDateValue = getEndDate.getDate() - getTodayDate.getDate();
     let duration = getEndDate.getDate() - getStartDate.getDate() + 1;
 
+    const herokuPath = 'https://thasup-travel-app.herokuapp.com';
+
     if (((0 <= departDateValue < 16) && (0 <= returnDateValue < 16)) === false) {
         departDateValue = 0;
         returnDateValue = 6;
@@ -39,7 +41,7 @@ export function handleSubmit(event) {
 
         // GeoName Fetching
         console.log(`::: GeoName Fetching :::`);
-        fetch('http://localhost:8888/place', {
+        fetch(`${herokuPath}/place`, {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json' },
@@ -61,7 +63,7 @@ export function handleSubmit(event) {
         // WeatherBit Fetching
         .then(function() {
             console.log(`::: WeatherBit Fetching :::`);
-            fetch('http://localhost:8888/forecast', {
+            fetch(`${herokuPath}/forecast`, {
                 method: 'POST',
                 credentials: 'same-origin',           
                 headers: { 'Content-Type': 'application/json' },
@@ -83,7 +85,7 @@ export function handleSubmit(event) {
             // PixaBay Fetching
             .then(function() {
                 console.log(`::: PixaBay City Image Fetching :::`);
-                fetch('http://localhost:8888/image', {
+                fetch(`${herokuPath}/image`, {
                     method: 'POST',
                     credentials: 'same-origin',           
                     headers: { 'Content-Type': 'application/json' },
@@ -97,7 +99,7 @@ export function handleSubmit(event) {
                     // If images of input place does not exist, fetch country images instead.
                     if (hits === 0) {
                         console.log(`::: Fail to Fetch City Image :::`);
-                        fetch('http://localhost:8888/countryImage', {
+                        fetch(`${herokuPath}/countryImage`, {
                             method: 'POST',
                             credentials: 'same-origin',           
                             headers: { 'Content-Type': 'application/json' },
@@ -119,7 +121,7 @@ export function handleSubmit(event) {
                 // RestCountry Fetching
                 .then(function() {
                     console.log(`::: RestCountry Fetching :::`);
-                    fetch('http://localhost:8888/countryInfo', {
+                    fetch(`${herokuPath}/countryInfo`, {
                         method: 'POST',
                         credentials: 'same-origin',           
                         headers: { 'Content-Type': 'application/json' },
