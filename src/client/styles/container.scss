@@ -80,9 +80,10 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
 
     #flag {
         grid-area: 1/2/-1/-1;
-        width: 500px;
+        width: 40vw;
         border-radius: 15px;
         box-shadow: 10px 5px 10px $my-black;
+        justify-self: center;
     }
 
     p:nth-child(4) {
@@ -176,7 +177,7 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
     
         #flag {
             margin: 15px 0px;
-            width: 200px;
+            width: 40vw;
         }
     }
 }

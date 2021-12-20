@@ -4,6 +4,7 @@ import '../styles/form.scss';
 import '../styles/grid.scss';
 import '../styles/base.scss';
 import '../styles/container.scss';
+import '../styles/loader.scss';
 
 // import JS
 import {handleSubmit} from './handleSubmit';
@@ -12,6 +13,7 @@ import {updateImage} from './updateImage';
 import {handleDate} from './handleDate';
 import {updateUI} from './updateUI';
 import {updateWeather} from './updateWeather';
+import {handleLoader} from './handleLoader';
 
 // import html
 import html from "../html/index.html";
@@ -20,6 +22,8 @@ import html from "../html/index.html";
 import github from '../media/github.png';
 import instagram from '../media/instagram.png';
 import linkedin from '../media/linkedin.png';
+import facebook from '../media/facebook.png';
+import compass from '../media/compass.png';
 
 // global export
 export {
@@ -29,6 +33,7 @@ export {
     handleDate,
     updateUI,
     updateWeather,
+    handleLoader
 }
 
 // Run handleDate function when page loaded

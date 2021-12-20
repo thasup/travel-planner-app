@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Varela+Round&display=swap" rel="stylesheet">
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/+EAAE0A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiIiIiIiIAAgAAAAAAAgACIiIiIiICERAAAAAAAgIQEAIiIiICAhAQEAAAAgICEBAQEiICAgIQEBAQAgICAhAQEBACAgICEBAQERECAgIQEBAAAAICAhAQEREREAICEBAAAAAAAiIQEREREREQABAAAAAAABAAEREREREREADgAAAA7/4AAOACAAAf+gAAWAoAAFfqAABUKgAAVaoAAFWqAABUKgAAV+oAAFAaAABf+AAAQAcAAH/3AAAABwAA" rel="icon" type="image/x-icon" />
+    <link href="../media/compass.png" rel="icon" type="image/x-icon" />
     <title>Travel App</title>
 </head>
 <body>
@@ -30,7 +30,12 @@
                 <input type="submit" id="submit" value="Let's Plan!">
             </form>
         </section>
-        <section class="detail none">
+        <div class="loader none">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <section class="detail">
             <div class="menu-container">
                 <div class="menu-list">
                     <p class="tabs --active-tab" id="overview-tab" onclick="Client.handleTab(event, 'overview-container')">Overview</p>
@@ -51,9 +56,9 @@
     </main>
     <footer>
         <div class="social">
-            <a href="#" class="github"><img src="../media/github.png" alt="github"></a>
-            <a href="#" class="linkedin"><img src="../media/linkedin.png" alt="LinkedIn"></a>
-            <a href="#" class="instagram"><img src="../media/instagram.png" alt="Instagram"></a>
+            <a href="https://github.com/thasup" class="github"><img src="../media/github.png" alt="github"></a>
+            <a href="https://www.linkedin.com/in/thanachon-supasatian-278292159/" class="linkedin"><img src="../media/linkedin.png" alt="LinkedIn"></a>
+            <a href="#" class="facebook"><img src="../media/facebook.png" alt="Facebook"></a>
         </div>
         <div class="copyright" id="about">&copy; Copyright Thanachon 2021</div>
     </footer>
