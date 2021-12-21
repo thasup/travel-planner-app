@@ -7,10 +7,8 @@ export function loopImage() {
     const toggleActive = (element, index, maxIndex) => {
         setTimeout(() => {
             element.style.opacity = 0.75;
-            console.log(`timeout-1 ${index}`);
             setTimeout(() => {
                 element.style.opacity = 0;
-                console.log(`timeout-2 ${index}`);
                 if (index === maxIndex) {
                     runLoop();
                 };

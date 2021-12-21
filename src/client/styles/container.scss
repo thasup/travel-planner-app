@@ -6,10 +6,6 @@ $main-theme-color: #344955;
 $sub-theme-color: #77dbff;
 $shadow: 2px 2px 3px rgb(56, 56, 56);
 
-// .--active-image {
-//     opacity: 0.75 !important;
-// }
-
 .images {
     background-size: cover;
     background-position: center;
@@ -22,10 +18,6 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
     text-align: center;
     justify-content: center;
 }
-
-// #img-0 {
-//     opacity: 1;
-// }
 
 .menu-container {
     grid-area: 1/1/2/-1;
@@ -182,6 +174,10 @@ $shadow: 2px 2px 3px rgb(56, 56, 56);
         #flag {
             margin: 15px 0px;
             width: 40vw;
+        }
+
+        p:nth-child(2) {
+            text-align: center;
         }
     }
 }

@@ -4,6 +4,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const regeneratorRuntime = require("regenerator-runtime");
 
 dotenv.config();
 
