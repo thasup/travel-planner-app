@@ -16,6 +16,7 @@ import {updateWeather} from './updateWeather';
 import {handleLoader} from './handleLoader';
 import {loopImage} from './loopImage';
 import {postData} from './postData';
+import {deleteTrip} from './deleteTrip';
 
 // import html
 import html from "../html/index.html";
@@ -37,7 +38,8 @@ export {
     updateWeather,
     handleLoader,
     loopImage,
-    postData
+    postData,
+    deleteTrip
 }
 
 // Run handleDate function when page loaded
