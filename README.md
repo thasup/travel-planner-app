@@ -1,18 +1,18 @@
 <!-- Add banner here -->
 ![Project Preview](docs/435423.gif)
 
-# My-Travel-App
+# Travel-Planer-App
 
 <!-- Describe your project in brief -->
 This project is a travel app that obtains a desired trip location & date from the user and displays weather forecast, country information, and an image of the location using information obtained from external APIs.
 
 *this project is part of Udacity front end web developer nanodegree program.*
 
-[My Travel App Link](https://thasup-travel-app.herokuapp.com/)
+[Travel Planer App](https://thasup-travel-app.herokuapp.com/)
 
 # Table of contents
 
-- [My-Travel-App](#my-travel-app)
+- [Travel-Planer-App](#travel-planer-app)
 - [Table of contents](#table-of-contents)
 - [Languages](#languages)
 - [Install](#install)
