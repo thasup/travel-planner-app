@@ -1,20 +1,15 @@
 // Require modules
 const path = require('path');
 const express = require('express');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const cors = require('cors');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const regeneratorRuntime = require("regenerator-runtime");
-
-dotenv.config();
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 // Start up an instance of app
 const app = express();
 
-// Dependencies
-app.use(cors());
-
 // Middleware
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -41,7 +36,7 @@ app.get('/', function (req, res) {
 });
 
 // GET Route - GeoName API
-app.post('/place', async(req, res) => {
+app.post('/place', async (req, res) => {
     const place = req.body.inputPlace;
     const response = await fetch(`http://api.geonames.org/searchJSON?q=${place}&fuzzy=0.8&maxRows=1&username=${geoName}`);
 
@@ -54,7 +49,7 @@ app.post('/place', async(req, res) => {
 });
 
 // GET Route - WeatherBit API
-app.post('/forecast', async(req, res) => {
+app.post('/forecast', async (req, res) => {
     const latitude = req.body.inputLat;
     const longitude = req.body.inputLng;
     const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${latitude}&lon=${longitude}&key=${weatherBit}`);
@@ -68,9 +63,8 @@ app.post('/forecast', async(req, res) => {
 });
 
 // GET Route - PixaBay API
-app.post('/image', async(req, res) => {
+app.post('/image', async (req, res) => {
     const City = req.body.city;
-    const Country = req.body.country;
     const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${City}+travel&image_type=photo&orientation=horizontal`);
 
     try {
@@ -82,8 +76,7 @@ app.post('/image', async(req, res) => {
 });
 
 // GET Route - PixaBay API
-app.post('/countryImage', async(req, res) => {
-    const City = req.body.city;
+app.post('/countryImage', async (req, res) => {
     const Country = req.body.country;
     const response = await fetch(`https://pixabay.com/api/?key=${pixaBay}&q=${Country}+travel&image_type=photo&orientation=horizontal`);
 
@@ -96,7 +89,7 @@ app.post('/countryImage', async(req, res) => {
 });
 
 // GET Route - RestCountry API
-app.post('/countryInfo', async(req, res) => {
+app.post('/countryInfo', async (req, res) => {
     const CountryCode = req.body.countryCode;
     const response = await fetch(`https://restcountries.com/v2/alpha?codes=${CountryCode}`);
 
