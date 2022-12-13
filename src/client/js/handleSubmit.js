@@ -22,7 +22,7 @@ export async function handleSubmit(event) {
     let returnDateValue = getEndDate.getDate() - getTodayDate.getDate();
     let duration = getEndDate.getDate() - getStartDate.getDate() + 1;
 
-    const path = "https://thasup-travel-planner.onrender.com/" || "http://localhost/8888";
+    const path = "https://thasup-travel-planner.onrender.com" || "http://localhost/8888";
 
     if ((0 <= departDateValue < 16 && 0 <= returnDateValue < 16) === false) {
         departDateValue = 0;
