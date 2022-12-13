@@ -33,8 +33,8 @@ This project is a travel app that obtains a desired trip location & date from th
 1. clone this git on computer
 2. install [node.js](https://nodejs.org/en/)
 3. run command `npm install` on terminal
-4. acquire your API key and replace it in *My-Travel-App\src\server\server.js*
-5. run command `npm run prod` on terminal
+4. acquire your API key and replace it in *.env*
+5. run command `npm run build` on terminal
 6. run command `npm run start` on terminal
 7. go to `http://localhost:8888/`
 8. happy!
