@@ -8,7 +8,7 @@ This project is a travel app that obtains a desired trip location & date from th
 
 *this project is part of Udacity front end web developer nanodegree program.*
 
-[Travel Planer App](https://thasup-travel-app.herokuapp.com/)
+[Travel Planer App](https://thasup-travel-planner.onrender.com/)
 
 # Table of contents
 
@@ -73,4 +73,4 @@ This project is a travel app that obtains a desired trip location & date from th
 - API
 - webpack
 - service worker
-- Heroku
+- Render
