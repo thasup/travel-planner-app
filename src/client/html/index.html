@@ -25,16 +25,16 @@
             <h3 class="headline">Where Would You Like To Go?</h3>
             <form class="form-panel" onsubmit="return Client.handleSubmit(event)">
                 <div class="place-panel">
-                    <label for="place" class="panel-name">Destination</label> 
+                    <label for="place" class="panel-name">Destination</label>
                     <input type="text" name="place" id="place" placeholder="Enter Your Destination Here">
                     <div id="error-msg">Please Enter Your Destination.</div>
                 </div>
                 <div class="start-date-panel">
-                    <label for="start-date" class="panel-name">Start Date</label>        
+                    <label for="start-date" class="panel-name">Start Date</label>
                     <input type="date" name="start-date" id="start-date" placeholder="Start Date">
                 </div>
                 <div class="end-date-panel">
-                    <label for="end-date" class="panel-name">End Date</label>        
+                    <label for="end-date" class="panel-name">End Date</label>
                     <input type="date" name="end-date" id="end-date" placeholder="End Date">
                 </div>
                 <input type="submit" id="submit" value="Let's Plan!">
@@ -78,7 +78,7 @@
         if ('serviceWorker' in navigator) {
             // Use the window load event to keep the page load performant
             window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js');
+                navigator.serviceWorker.register('/service-worker.js');
             });
         };
     </script>

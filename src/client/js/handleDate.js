@@ -1,45 +1,45 @@
-export function handleDate() {
+export function handleDate () {
+  // Create a new date instance dynamically with JS
+  const localDate = new Date();
+  const years = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  const dd = localDate.getDate();
+  const mm = localDate.getMonth();
+  const yy = localDate.getFullYear();
+  const today = `${yy}-${mm + 1}-${dd}`;
+  const todayNameMonth = `${dd} ${years[mm]} ${yy}`;
 
-    // Create a new date instance dynamically with JS
-    let localDate = new Date();
-    const year = [
-        'January', 
-        'February', 
-        'March', 
-        'April', 
-        'May', 
-        'June', 
-        'July', 
-        'August', 
-        'September', 
-        'October', 
-        'November', 
-        'December'];
-    let dd = localDate.getDate();
-    let mm = localDate.getMonth();
-    let yy = localDate.getFullYear();
-    let today = `${yy}-${mm + 1}-${dd}`;
-    let todayNameMonth = `${dd} ${year[mm]} ${yy}`;
+  // Prevent date input to be able to select previous date
+  let DD = localDate.getDate();
+  let MM = localDate.getMonth() + 1;
 
-    // Prevent date input to be able to select previous date
-    let DD = localDate.getDate();
-    let MM = localDate.getMonth() + 1;
+  if (DD < 10) {
+    DD = `0${DD}`;
+  };
 
-    if (DD < 10) {
-        DD = `0${DD}`;
-    };
+  if (MM < 10) {
+    MM = `0${MM}`;
+  };
 
-    if (MM < 10) {
-        MM = `0${MM}`;
-    };
+  const minDay = `${yy}-${MM}-${DD}`;
 
-    let minDay = `${yy}-${MM}-${DD}`;
+  // Debug
+  console.log({ today, todayNameMonth, minDay });
 
-    // Debug
-    console.log({today, todayNameMonth, minDay});
+  document.getElementById('start-date').setAttribute('min', minDay);
+  document.getElementById('end-date').setAttribute('min', minDay);
 
-    document.getElementById("start-date").setAttribute("min", minDay);
-    document.getElementById("end-date").setAttribute("min", minDay);
-
-    return today, todayNameMonth, minDay;
+  return today, todayNameMonth, minDay;
 };
