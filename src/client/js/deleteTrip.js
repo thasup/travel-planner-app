@@ -1,21 +1,21 @@
 export const deleteTrip = (event) => {
-    event.preventDefault();
-    
-    const delPlace = document.querySelector('#place');
-    const delStartDate = document.querySelector('#start-date');
-    const delEndDate = document.querySelector('#end-date');
+  event.preventDefault();
 
-    const delImage = document.querySelector('.background-img');
-    const delOverview = document.querySelector('#overview-container');
-    const delSummary = document.querySelector('.forecast-summary-list');
-    const delDetail = document.querySelector('.forecast-detail-list');
+  const delPlace = document.querySelector('#place');
+  const delStartDate = document.querySelector('#start-date');
+  const delEndDate = document.querySelector('#end-date');
 
-    delPlace.value = '';
-    delStartDate.value = '';
-    delEndDate.value = '';
+  const delImage = document.querySelector('.background-img');
+  const delOverview = document.querySelector('#overview-container');
+  const delSummary = document.querySelector('.forecast-summary-list');
+  const delDetail = document.querySelector('.forecast-detail-list');
 
-    delImage.innnerHTML = '<div class="images" id="img-0"></div>';
-    delOverview.innnerHTML = '';
-    delSummary.innnerHTML = '';
-    delDetail.innnerHTML = '';
+  delPlace.value = '';
+  delStartDate.value = '';
+  delEndDate.value = '';
+
+  delImage.innnerHTML = '<div class="images" id="img-0"></div>';
+  delOverview.innnerHTML = '';
+  delSummary.innnerHTML = '';
+  delDetail.innnerHTML = '';
 };
